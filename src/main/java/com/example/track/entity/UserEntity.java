@@ -1,9 +1,14 @@
 package com.example.track.entity;
 
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,6 +24,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "user")
 public class UserEntity {
 
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,10 +39,12 @@ public class UserEntity {
 	@Column(name = "status_id", columnDefinition = "INT NOT NULL DEFAULT 1")
 	private int status;
 	
-	@Column(name = "transaction_id")
+	@Column(name = "transaction_id" , unique = true)
 	private String transactionId;
 	
 	@Column(name = "role_id")
 	private String role;
+	
+	
 	
 }

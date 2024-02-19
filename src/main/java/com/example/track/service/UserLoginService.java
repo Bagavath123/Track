@@ -1,10 +1,7 @@
 package com.example.track.service;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.track.entity.UserEntity;
@@ -19,10 +16,6 @@ public class UserLoginService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-
 	
 	/* SignUp User */
 	public GenericResponse addUser(UserSignUpRequest signUpRequest) throws Exception {
@@ -30,18 +23,18 @@ public class UserLoginService {
 		GenericResponse response = new GenericResponse();
 		try {
 			//check if the user already exists
-		 	UserEntity existingUser = userRepository.findByUsername(signUpRequest.getUsername());
+		 	UserEntity existingUser = userRepository.findByUsername(signUpRequest.getUserName());
 			if(existingUser != null) {
 				return GenericResponse.getFailureResponse("108", "User Already Exists");
 			}
 			
 			// Create a new user entity
 			UserEntity newUser = new UserEntity();
-			newUser.setUsername(signUpRequest.getUsername());
+			newUser.setUsername(signUpRequest.getUserName());
 			newUser.setPassword(signUpRequest.getPassword());
 //			String encodedPassword = this.passwordEncoder.encode(signUpRequest.getPassword());
 //			newUser.setPassword(encodedPassword);
-			newUser.setStatus(signUpRequest.getStatus());
+			newUser.setStatus(1);
 			newUser.setTransactionId(signUpRequest.getTransactionId());
 			newUser.setRole(signUpRequest.getRole());
 			

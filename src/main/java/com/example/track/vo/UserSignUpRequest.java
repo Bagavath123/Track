@@ -12,7 +12,7 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserSignUpRequest {
 
-	private String username;
+	private String userName;
 	private String password;
 	private int status;
 	private String transactionId;
