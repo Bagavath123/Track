@@ -43,7 +43,7 @@ public class UserEntity {
 	private String transactionId;
 	
 	@Column(name = "role_id")
-	private String role;
+	private int role = 1;
 	
 	
 	

@@ -32,11 +32,19 @@ public class UserLoginService {
 			UserEntity newUser = new UserEntity();
 			newUser.setUsername(signUpRequest.getUserName());
 			newUser.setPassword(signUpRequest.getPassword());
-//			String encodedPassword = this.passwordEncoder.encode(signUpRequest.getPassword());
-//			newUser.setPassword(encodedPassword);
 			newUser.setStatus(1);
 			newUser.setTransactionId(signUpRequest.getTransactionId());
-			newUser.setRole(signUpRequest.getRole());
+			newUser.setRole(1);
+			
+//			String encodedPassword = this.passwordEncoder.encode(signUpRequest.getPassword());
+//			newUser.setPassword(encodedPassword);
+			
+//			// Check if the user is inactive
+//	        if (!signUpRequest.) {
+//	            newUser.setRole(0); // Change the default role _id to 0 if not inactive
+//	        } else {
+//	            newUser.setRole(1); // Otherwise, set the default role _id to 1
+//	        }
 			
 			userRepository.save(newUser);
 			

@@ -16,5 +16,7 @@ public class UserSignUpRequest {
 	private String password;
 	private int status;
 	private String transactionId;
-	private String role;
+	private int role;
+		
+	
 }
