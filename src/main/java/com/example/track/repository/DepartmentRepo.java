@@ -10,9 +10,9 @@ import com.example.track.entity.Department;
 
 public interface DepartmentRepo extends JpaRepository<Department, Long>{
 
-	 Department findByDepartmentName(String departmentName);
+	 //Department findByDepartmentName(String departmentName);
 	
-	 Department save(Department department);
+	 //Department save(Department department);
 	 
 	 @Query(nativeQuery = true, value = "SELECT department FROM tbl_department")
 	    List<Map<String, String>> findAllDepartmentNames();

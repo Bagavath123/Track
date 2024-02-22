@@ -10,10 +10,9 @@ import com.example.track.entity.Project;
 
 public interface ProjectRepo  extends JpaRepository<Project, Long>{
 
-	Project findByProjectName(String projectName);
+	//Project findByProjectName(String projectName);
 
-    // Correct return type
-    Project save(Project project);
+   // Project save(Project project);
     
     @Query(nativeQuery = true, value = "Select project from tbl_project")
        List<Map<String, String>> findAllProjectNames(); 
