@@ -13,6 +13,7 @@ public class GenericResponse implements Serializable{
 	private String errorCode;
 	private String userDisplayMsg;
 	private Object data;
+	private String token;
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;

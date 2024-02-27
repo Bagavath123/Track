@@ -25,7 +25,7 @@ import com.example.track.vo.GenericResponse;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/track")
+@RequestMapping("/api/v2/track")
 public class EmployeeMasterController {
 	
 	@Autowired
@@ -46,7 +46,7 @@ public class EmployeeMasterController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
-	//get All Employees emp
+	//get All Employees
 	@GetMapping("/getallEmployee")
 	public List<EmployeeMaster> getAllEmp(){
 		
@@ -55,7 +55,8 @@ public class EmployeeMasterController {
 
 	//Get Employee By EmployeeCode
 	@GetMapping("/getEmployee/{empCode}")
-	public EmployeeMaster getEmpByCode(@PathVariable String empCode) {		
+	public EmployeeMaster getEmpByCode(@PathVariable String empCode) {
+		
 		return employeeMasterService.getEmpByCode(empCode);
 	}
 	
@@ -72,6 +73,7 @@ public class EmployeeMasterController {
 	@DeleteMapping("/deleteEmployee/{empCode}")
     public ResponseEntity<String> deleteEmployeeByCode(@PathVariable String empCode) {
         employeeMasterService.deleteEmployeeByCode(empCode);
+        
         return ResponseEntity.ok("Employee deleted successfully");
     }
 	
@@ -79,13 +81,15 @@ public class EmployeeMasterController {
 	@GetMapping("/departments")
 	public ResponseEntity<List<Map<String, String>>> getDepartmentNames() {
 	    List<Map<String, String>> departmentNames = departmentRepo.findAllDepartmentNames();
+	    
 	    return ResponseEntity.ok(departmentNames);
 	}
 
 	//get all projects
-		@GetMapping("/projects")
-		public ResponseEntity<List<Map<String, String>>> getProjectNames(){
-			List<Map<String, String>> projectNames = projectRepo.findAllProjectNames();
-			return ResponseEntity.ok(projectNames);
+	@GetMapping("/projects")
+	public ResponseEntity<List<Map<String, String>>> getProjectNames(){
+		List<Map<String, String>> projectNames = projectRepo.findAllProjectNames();
+		
+		return ResponseEntity.ok(projectNames);
 		}
 }

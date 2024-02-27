@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/track")
+@RequestMapping("/api/v2/track")
 public class UserLoginController {
 
 	@Autowired
@@ -28,8 +28,7 @@ public class UserLoginController {
 	/* Login User */
 	@PostMapping("/loginuser")
 	public ResponseEntity<?> getLoginUser(@RequestBody UserLoginrequest loginRequest) throws Exception{
-		GenericResponse response = null;
-		
+		GenericResponse response = null;		
 	    response = userLoginService.validateUserLoginByUserName(loginRequest);
 	    
 		return new ResponseEntity<>(response, HttpStatus.OK);	
@@ -38,10 +37,9 @@ public class UserLoginController {
 	/*SignUp User */
 	@PostMapping("/signupuser")
 	public ResponseEntity<?> signUpUser(@RequestBody UserSignUpRequest signUpRequest ) throws Exception{
-		
 		GenericResponse response = null;
-		
 		response = userLoginService.addUser(signUpRequest);
+		
 		return new ResponseEntity<>(response, HttpStatus.OK);
 		
 	}

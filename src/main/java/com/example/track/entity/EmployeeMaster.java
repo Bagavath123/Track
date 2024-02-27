@@ -1,9 +1,7 @@
 package com.example.track.entity;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -52,7 +52,6 @@ public class EmployeeMasterService {
 			addEmployee.setDepartmentName(employeeMasterRequest.getDepartmentName());
 			addEmployee.setProjectName(employeeMasterRequest.getProjectName());
 			
-
 			//addEmployee.setSystemMacId(employeeMasterRequest.getSystemMacId());	
 			//addEmployee.setMobileNumber(employeeMasterRequest.getMobileNumber());
 			//addEmployee.setEmployeeEmail(employeeMasterRequest.getEmployeeEmail());
@@ -79,7 +78,7 @@ public class EmployeeMasterService {
 		return employeeMasterRepository.findByEmpCode(employeeCode);
 	}
 	
-	//Update Employee	
+	//Update Employee
 	public GenericResponse updateEmployee(EmployeeMasterRequest employeeMasterRequest)throws Exception{
 		GenericResponse response = new GenericResponse();
 		
@@ -99,7 +98,6 @@ public class EmployeeMasterService {
 			}
 			
 		}catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			return GenericResponse.getFailureResponse("108", "Exception in Update Employee:" + e.getMessage());
 		}
@@ -118,7 +116,6 @@ public class EmployeeMasterService {
 
 	//get All Employees
 	public List<EmployeeMaster> getAllEmp() {
-		// TODO Auto-generated method stub
 		return employeeMasterRepository.findAll();
 	}
 	
